@@ -1,8 +1,6 @@
 # cycle-whatwg-streams-adapter
 
-TypeScript project template for npm package.
-
-<DESCRIPTION>
+Cycle.js [WHATWG Streams](https://streams.spec.whatwg.org/) Stream Adapter.
 
 ## Badges
 
