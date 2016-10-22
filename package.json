@@ -1,0 +1,78 @@
+{
+  "name": "cycle-whatwg-streams-adapter",
+  "description": "Cycle.js WHATWG Streams Stream Adapter",
+  "version": "0.0.0",
+  "author": {
+    "name": "bouzuya",
+    "email": "m@bouzuya.net",
+    "url": "http://bouzuya.net"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "beater": {
+    "dir": "./.tmp/es5/test/",
+    "require": [
+      "./scripts/enable-power-assert.js"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/bouzuya/cycle-whatwg-streams-adapter/issues"
+  },
+  "dependencies": {
+    "@cycle/base": "4.x.x"
+  },
+  "devDependencies": {
+    "@types/node": "6.0.45",
+    "@types/power-assert": "1.4.29",
+    "@types/proxyquire": "1.3.27",
+    "@types/sinon": "1.16.31",
+    "babel-cli": "6.16.0",
+    "babel-preset-es2015": "6.16.0",
+    "beater": "0.4.1",
+    "beater-cli": "0.2.4",
+    "cpx": "1.5.0",
+    "espower-loader": "1.0.1",
+    "npm-run-all": "3.1.1",
+    "power-assert": "1.4.1",
+    "proxyquire": "1.7.10",
+    "rimraf": "2.5.4",
+    "sinon": "1.17.6",
+    "tslint": "3.15.1",
+    "typescript": "2.0.3",
+    "watch": "1.0.1",
+    "whatwg-streams-b": "0.1.1"
+  },
+  "homepage": "https://github.com/bouzuya/cycle-whatwg-streams-adapter#readme",
+  "keywords": [],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "peerDependencies": {
+    "whatwg-streams-b": "0.1.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bouzuya/cycle-whatwg-streams-adapter"
+  },
+  "scripts": {
+    "build": "npm-run-all -s 'build:ts' 'build:es2015' -p 'copy:*'",
+    "build:es2015": "babel --out-dir .tmp/es5/ .tmp/es2015/",
+    "build:ts": "tsc",
+    "clean": "rimraf .tmp lib",
+    "copy:dts": "cpx '.tmp/es2015/src/**/*.d.ts' 'lib/'",
+    "copy:js": "cpx '.tmp/es5/src/**/*.js' 'lib/'",
+    "lint": "npm-run-all -p 'lint:*'",
+    "lint:ts": "tslint --project tsconfig.json",
+    "prepublish": "npm-run-all -s 'clean' -p 'lint' 'build'",
+    "start": "node examples/index.js",
+    "test": "beater",
+    "watch": "npm-run-all -p 'watch:*'",
+    "watch:es2015": "npm run 'build:es2015' -- --watch",
+    "watch:lint": "watch --wait 2 'npm run lint' 'src/' 'test/'",
+    "watch:test": "watch --wait 2 'npm test' '.tmp/es5/'",
+    "watch:ts": "npm run 'build:ts' -- --watch"
+  },
+  "typings": "lib/index.d.ts"
+}
