@@ -45,6 +45,9 @@
     "watch": "1.0.1",
     "whatwg-streams-b": "0.1.1"
   },
+  "files": [
+    "lib"
+  ],
   "homepage": "https://github.com/bouzuya/cycle-whatwg-streams-adapter#readme",
   "keywords": [],
   "license": "MIT",
