@@ -1,7 +1,7 @@
 {
   "name": "cycle-whatwg-streams-adapter",
   "description": "Cycle.js WHATWG Streams Stream Adapter",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "author": {
     "name": "bouzuya",
     "email": "m@bouzuya.net",
